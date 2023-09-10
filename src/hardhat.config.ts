@@ -9,6 +9,11 @@ const config: HardhatUserConfig = {
       url: baserpc,
       accounts: [private_key_1, private_key_2, private_key_3],
     },
+    hardhat: {
+      forking: {
+      url: baserpc,
+      },
+      }
     //   polygon: {
     //     url: rpcUrl,
     //     chainId: 137, // Polygon Mainnet

@@ -3,3 +3,5 @@
 /* eslint-disable */
 export type { IMultiSig } from "./IMultiSig";
 export type { IMultiSigWura } from "./IMultiSigWura";
+export type { ISwapper } from "./ISwapper";
+export type { ITOK } from "./ITOK";

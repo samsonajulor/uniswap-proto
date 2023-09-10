@@ -3,3 +3,5 @@
 /* eslint-disable */
 export { IMultiSig__factory } from "./IMultiSig__factory";
 export { IMultiSigWura__factory } from "./IMultiSigWura__factory";
+export { ISwapper__factory } from "./ISwapper__factory";
+export { ITOK__factory } from "./ITOK__factory";

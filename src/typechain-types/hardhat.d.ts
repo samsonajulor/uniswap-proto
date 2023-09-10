@@ -46,6 +46,14 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IMultiSigWura__factory>;
     getContractFactory(
+      name: "ISwapper",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ISwapper__factory>;
+    getContractFactory(
+      name: "ITOK",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ITOK__factory>;
+    getContractFactory(
       name: "Lock",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Lock__factory>;
@@ -65,10 +73,6 @@ declare module "hardhat/types/runtime" {
       name: "MultiSig",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MultiSig__factory>;
-    getContractFactory(
-      name: "Swapper",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Swapper__factory>;
     getContractFactory(
       name: "Swapper",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -119,6 +123,16 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IMultiSigWura>;
     getContractAt(
+      name: "ISwapper",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ISwapper>;
+    getContractAt(
+      name: "ITOK",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ITOK>;
+    getContractAt(
       name: "Lock",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -143,11 +157,6 @@ declare module "hardhat/types/runtime" {
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.MultiSig>;
-    getContractAt(
-      name: "Swapper",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.Swapper>;
     getContractAt(
       name: "Swapper",
       address: string | ethers.Addressable,
@@ -192,6 +201,14 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IMultiSigWura>;
     deployContract(
+      name: "ISwapper",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ISwapper>;
+    deployContract(
+      name: "ITOK",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ITOK>;
+    deployContract(
       name: "Lock",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Lock>;
@@ -211,10 +228,6 @@ declare module "hardhat/types/runtime" {
       name: "MultiSig",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MultiSig>;
-    deployContract(
-      name: "Swapper",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Swapper>;
     deployContract(
       name: "Swapper",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -265,6 +278,16 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IMultiSigWura>;
     deployContract(
+      name: "ISwapper",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ISwapper>;
+    deployContract(
+      name: "ITOK",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ITOK>;
+    deployContract(
       name: "Lock",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -289,11 +312,6 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MultiSig>;
-    deployContract(
-      name: "Swapper",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Swapper>;
     deployContract(
       name: "Swapper",
       args: any[],

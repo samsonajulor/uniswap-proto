@@ -8,7 +8,6 @@ import type {
   FunctionFragment,
   Result,
   Interface,
-  AddressLike,
   ContractRunner,
   ContractMethod,
   Listener,
@@ -21,15 +20,12 @@ import type {
   TypedContractMethod,
 } from "../../common";
 
-export interface SwapperInterface extends Interface {
+export interface ISwapperInterface extends Interface {
   getFunction(
     nameOrSignature:
       | "AddLiquidity"
-      | "ETHTok"
-      | "USDCTok"
       | "getETHTokReserves"
       | "getUSDCTokReserves"
-      | "liquidityProviders"
       | "removeLiquidity"
       | "swapETHTokForUSDCTok"
       | "swapUSDCTokForETHTok"
@@ -39,8 +35,6 @@ export interface SwapperInterface extends Interface {
     functionFragment: "AddLiquidity",
     values: [BigNumberish, BigNumberish]
   ): string;
-  encodeFunctionData(functionFragment: "ETHTok", values?: undefined): string;
-  encodeFunctionData(functionFragment: "USDCTok", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "getETHTokReserves",
     values?: undefined
@@ -48,10 +42,6 @@ export interface SwapperInterface extends Interface {
   encodeFunctionData(
     functionFragment: "getUSDCTokReserves",
     values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "liquidityProviders",
-    values: [AddressLike]
   ): string;
   encodeFunctionData(
     functionFragment: "removeLiquidity",
@@ -70,18 +60,12 @@ export interface SwapperInterface extends Interface {
     functionFragment: "AddLiquidity",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "ETHTok", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "USDCTok", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "getETHTokReserves",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
     functionFragment: "getUSDCTokReserves",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "liquidityProviders",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -98,11 +82,11 @@ export interface SwapperInterface extends Interface {
   ): Result;
 }
 
-export interface Swapper extends BaseContract {
-  connect(runner?: ContractRunner | null): Swapper;
+export interface ISwapper extends BaseContract {
+  connect(runner?: ContractRunner | null): ISwapper;
   waitForDeployment(): Promise<this>;
 
-  interface: SwapperInterface;
+  interface: ISwapperInterface;
 
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
@@ -147,19 +131,9 @@ export interface Swapper extends BaseContract {
     "nonpayable"
   >;
 
-  ETHTok: TypedContractMethod<[], [string], "view">;
-
-  USDCTok: TypedContractMethod<[], [string], "view">;
-
   getETHTokReserves: TypedContractMethod<[], [bigint], "view">;
 
   getUSDCTokReserves: TypedContractMethod<[], [bigint], "view">;
-
-  liquidityProviders: TypedContractMethod<
-    [arg0: AddressLike],
-    [[bigint, bigint] & { USDCTokReserve: bigint; ETHTokReserve: bigint }],
-    "view"
-  >;
 
   removeLiquidity: TypedContractMethod<
     [_USDCTokAmount: BigNumberish, _ETHTokAmount: BigNumberish],
@@ -191,24 +165,11 @@ export interface Swapper extends BaseContract {
     "nonpayable"
   >;
   getFunction(
-    nameOrSignature: "ETHTok"
-  ): TypedContractMethod<[], [string], "view">;
-  getFunction(
-    nameOrSignature: "USDCTok"
-  ): TypedContractMethod<[], [string], "view">;
-  getFunction(
     nameOrSignature: "getETHTokReserves"
   ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "getUSDCTokReserves"
   ): TypedContractMethod<[], [bigint], "view">;
-  getFunction(
-    nameOrSignature: "liquidityProviders"
-  ): TypedContractMethod<
-    [arg0: AddressLike],
-    [[bigint, bigint] & { USDCTokReserve: bigint; ETHTokReserve: bigint }],
-    "view"
-  >;
   getFunction(
     nameOrSignature: "removeLiquidity"
   ): TypedContractMethod<

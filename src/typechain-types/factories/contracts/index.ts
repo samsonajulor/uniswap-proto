@@ -9,6 +9,5 @@ export * as multisigFactorySol from "./multisigFactory.sol";
 export * as multisigWuraSol from "./multisigWura.sol";
 export * as multisigMainSol from "./multisig_main.sol";
 export * as swapperSol from "./swapper.sol";
-export * as swappertestSol from "./swappertest.sol";
 export * as usdcTokSol from "./usdcTok.sol";
 export { Lock__factory } from "./Lock__factory";

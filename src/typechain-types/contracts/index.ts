@@ -17,8 +17,6 @@ import type * as multisigMainSol from "./multisig_main.sol";
 export type { multisigMainSol };
 import type * as swapperSol from "./swapper.sol";
 export type { swapperSol };
-import type * as swappertestSol from "./swappertest.sol";
-export type { swappertestSol };
 import type * as usdcTokSol from "./usdcTok.sol";
 export type { usdcTokSol };
 export type { Lock } from "./Lock";

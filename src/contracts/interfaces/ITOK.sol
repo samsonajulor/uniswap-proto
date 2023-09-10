@@ -8,4 +8,5 @@ interface ITOK {
     function balanceOf(address) external view returns (uint);
     function approve(address, uint) external;
     function transferFrom(address, address, uint) external;
+    function allowance(address, address) external view returns (uint);
 }
