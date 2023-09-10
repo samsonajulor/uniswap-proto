@@ -1,14 +1,5 @@
 import { ethers } from 'hardhat';
 
-// interface ISwapper {
-//     function swapUSDCTokForETHTok(uint256 _USDCTokAmount) external;
-//     function swapETHTokForUSDCTok(uint256 _ETHTokAmount) external;
-//     function getETHTokReserves() external view returns (uint _ETHTok);
-//     function getUSDCTokReserves() external view returns (uint _USDCTok);
-//     function AddLiquidity(uint _USDCTokAmount, uint _ETHTokAmount) external;
-//     function removeLiquidity(uint _USDCTokAmount, uint _ETHTokAmount) external;
-// }
-
 // token address at sepolia = 0x0dF9E9f0FC5aDbd840e7332DDE021c6B3C1e5e7C
 async function main() {
   const swapperAddress = '0x0dF9E9f0FC5aDbd840e7332DDE021c6B3C1e5e7C';
