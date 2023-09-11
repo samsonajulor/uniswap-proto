@@ -1,6 +1,6 @@
 import { ethers } from 'hardhat';
 
-// token address at sepolia = 0x0dF9E9f0FC5aDbd840e7332DDE021c6B3C1e5e7C
+// token address at sepolia = 0x3674651AF1b1c3615621D0279Cca7f510DFeAF51
 async function main() {
   const lock = await ethers.deployContract('Swapper', []);
 

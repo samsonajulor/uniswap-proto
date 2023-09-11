@@ -545,8 +545,8 @@
       ]
     },
     "/home/samsonajulor/github/web3/uniswap-proto/src/contracts/swapper.sol": {
-      "lastModificationDate": 1694374602588,
-      "contentHash": "c8339d0654b4304cff862249a989ae1b",
+      "lastModificationDate": 1694410768275,
+      "contentHash": "3a3fd41c8b4f57aeb6854b261a844a44",
       "sourceName": "contracts/swapper.sol",
       "solcConfig": {
         "version": "0.8.13",

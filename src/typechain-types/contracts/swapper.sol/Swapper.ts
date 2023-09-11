@@ -24,9 +24,9 @@ import type {
 export interface SwapperInterface extends Interface {
   getFunction(
     nameOrSignature:
-      | "AddLiquidity"
       | "ETHTok"
       | "USDCTok"
+      | "addLiquidity"
       | "getETHTokReserves"
       | "getUSDCTokReserves"
       | "liquidityProviders"
@@ -35,12 +35,12 @@ export interface SwapperInterface extends Interface {
       | "swapUSDCTokForETHTok"
   ): FunctionFragment;
 
-  encodeFunctionData(
-    functionFragment: "AddLiquidity",
-    values: [BigNumberish, BigNumberish]
-  ): string;
   encodeFunctionData(functionFragment: "ETHTok", values?: undefined): string;
   encodeFunctionData(functionFragment: "USDCTok", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "addLiquidity",
+    values: [BigNumberish, BigNumberish]
+  ): string;
   encodeFunctionData(
     functionFragment: "getETHTokReserves",
     values?: undefined
@@ -66,12 +66,12 @@ export interface SwapperInterface extends Interface {
     values: [BigNumberish]
   ): string;
 
-  decodeFunctionResult(
-    functionFragment: "AddLiquidity",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "ETHTok", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "USDCTok", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "addLiquidity",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "getETHTokReserves",
     data: BytesLike
@@ -141,15 +141,15 @@ export interface Swapper extends BaseContract {
     event?: TCEvent
   ): Promise<this>;
 
-  AddLiquidity: TypedContractMethod<
+  ETHTok: TypedContractMethod<[], [string], "view">;
+
+  USDCTok: TypedContractMethod<[], [string], "view">;
+
+  addLiquidity: TypedContractMethod<
     [_USDCTokAmount: BigNumberish, _ETHTokAmount: BigNumberish],
     [void],
     "nonpayable"
   >;
-
-  ETHTok: TypedContractMethod<[], [string], "view">;
-
-  USDCTok: TypedContractMethod<[], [string], "view">;
 
   getETHTokReserves: TypedContractMethod<[], [bigint], "view">;
 
@@ -184,18 +184,18 @@ export interface Swapper extends BaseContract {
   ): T;
 
   getFunction(
-    nameOrSignature: "AddLiquidity"
-  ): TypedContractMethod<
-    [_USDCTokAmount: BigNumberish, _ETHTokAmount: BigNumberish],
-    [void],
-    "nonpayable"
-  >;
-  getFunction(
     nameOrSignature: "ETHTok"
   ): TypedContractMethod<[], [string], "view">;
   getFunction(
     nameOrSignature: "USDCTok"
   ): TypedContractMethod<[], [string], "view">;
+  getFunction(
+    nameOrSignature: "addLiquidity"
+  ): TypedContractMethod<
+    [_USDCTokAmount: BigNumberish, _ETHTokAmount: BigNumberish],
+    [void],
+    "nonpayable"
+  >;
   getFunction(
     nameOrSignature: "getETHTokReserves"
   ): TypedContractMethod<[], [bigint], "view">;

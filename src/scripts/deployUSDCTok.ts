@@ -1,14 +1,14 @@
 import { ethers } from 'hardhat';
 
-// token address at sepolia = 0x0925866e1e5B629416e8199003458de8697e43AE
+// token address at sepolia = 0x57Df052B630Dd1a713C91CB87FAE9fC03AA3182a
 async function main() {
-  // const lock = await ethers.deployContract('USDCToken', []);
+  const lock = await ethers.deployContract('USDCToken', []);
 
-  // await lock.waitForDeployment();
+  await lock.waitForDeployment();
 
-  // console.log(
-  //   `ETHToken deployed to ${lock.target}`
-  // );
+  console.log(
+    `ETHToken deployed to ${lock.target}`
+  );
 }
 
 main().catch((error) => {

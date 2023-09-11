@@ -1,14 +1,11 @@
-# hard_hat_template
+# uniswap-proto
 
+This Contract was deployed to sepolia testnet via the following commands
 
-- run `yarn`
-- run `npx w3 authorize <your@email.com>`
- - run `npx w3 space create Pictures` to create a pictures space
- - run `npx w3 up {path_to_file}` to upload a file
- - 
-
--compile with hardhat in the src dir `npx hardhat compile`
-- test a contract with `npx hardhat test`
-- deploy contract to a network `npx hardhat run scripts/{path_to_file}`
-or `npx hardhat --network localhost run scripts/{path_to_file}`
-- start up a local node `npx hardhat node`
+- RUN `cd src`
+- RUN `npx hardhat compile`
+- RUN `npx hardhat run scripts/deployEthTok.ts --network sepolia`
+- copy the deployed contract address and save. Input into the ETHTok variable of swapper.sol constructor.
+- RUN `npx hardhat run scripts/deployUSDCTok.ts --network sepolia`
+- copy the deployed contract address and save the input into the USDCTok variable of the swapper.sol constructor.
+- RUN `npx hardhat run scripts/deploySwapper.ts --network sepolia`
