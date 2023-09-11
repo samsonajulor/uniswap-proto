@@ -1,5 +1,4 @@
 import { ethers } from 'hardhat';
-import {ITOK} from '../typechain-types/contracts/interfaces/ITOK';
 
 // token address at sepolia = 0x0dF9E9f0FC5aDbd840e7332DDE021c6B3C1e5e7C
 
@@ -26,13 +25,13 @@ async function main() {
   const usdcBalanceAfter = await uniswapProtoContract.getUSDCTokReserves();
   console.log('usdcBalanceAfter', usdcBalanceAfter.toString());
 
-  // remove liquidity
-  await uniswapProtoContract.removeLiquidity(200, 200);
-  // log the reserves
-  const ethBalanceAfter2 = await uniswapProtoContract.getETHTokReserves();
-  console.log('ethBalanceAfterRemoval', ethBalanceAfter2.toString());
-  const usdcBalanceAfter2 = await uniswapProtoContract.getUSDCTokReserves();
-  console.log('usdcBalanceAfterRemoval', usdcBalanceAfter2.toString());
+  // // remove liquidity
+  // await uniswapProtoContract.removeLiquidity(200, 200);
+  // // log the reserves
+  // const ethBalanceAfter2 = await uniswapProtoContract.getETHTokReserves();
+  // console.log('ethBalanceAfterRemoval', ethBalanceAfter2.toString());
+  // const usdcBalanceAfter2 = await uniswapProtoContract.getUSDCTokReserves();
+  // console.log('usdcBalanceAfterRemoval', usdcBalanceAfter2.toString());
 
   // allow usdc to be spent by swapper
   await usdcTokenContract.allowance(deployer.address, swapperAddress);
@@ -46,17 +45,17 @@ async function main() {
   const usdcBalanceAfter3 = await uniswapProtoContract.getUSDCTokReserves();
   console.log('usdcBalanceAfterSwap', usdcBalanceAfter3.toString());
 
-  // allow eth to be spent by swapper
-  await ethTokenContract.allowance(deployer.address, swapperAddress);
-  // approve eth
-  await ethTokenContract.approve(swapperAddress, 1000000000000);
-  // swap usdc for eth
-  await uniswapProtoContract.swapUSDCTokForETHTok(100);
-  // log the reserves
-  const ethBalanceAfter4 = await uniswapProtoContract.getETHTokReserves();
-  console.log('ethBalanceAfterSwap', ethBalanceAfter4.toString());
-  const usdcBalanceAfter4 = await uniswapProtoContract.getUSDCTokReserves();
-  console.log('usdcBalanceAfterSwap', usdcBalanceAfter4.toString());
+  // // allow eth to be spent by swapper
+  // await ethTokenContract.allowance(deployer.address, swapperAddress);
+  // // approve eth
+  // await ethTokenContract.approve(swapperAddress, 1000000000000);
+  // // swap usdc for eth
+  // await uniswapProtoContract.swapUSDCTokForETHTok(100);
+  // // log the reserves
+  // const ethBalanceAfter4 = await uniswapProtoContract.getETHTokReserves();
+  // console.log('ethBalanceAfterSwap', ethBalanceAfter4.toString());
+  // const usdcBalanceAfter4 = await uniswapProtoContract.getUSDCTokReserves();
+  // console.log('usdcBalanceAfterSwap', usdcBalanceAfter4.toString());
 }
 
 main().catch((error) => {
